@@ -104,7 +104,7 @@ public class Assignment1 {
 		// 13) Print the Grand Total amount
 		WebElement frame = driver.findElement(By.xpath("//iframe[@class='css-acpm4k']"));
 		driver.switchTo().frame(frame);
-		String grandTotal = driver.findElement(By.xpath("//div[text()='259']")).getText();
+		String grandTotal = driver.findElement(By.xpath("//div[text()='₹259']")).getText();
 		int total = Integer.parseInt(grandTotal.replaceAll("[^0-9]", ""));
 		System.out.println("The Grand Total amount of product is  :" + total);
 
