@@ -77,7 +77,7 @@ public class Assignment2 {
 				// 6. Create a file and store the snapshot of the first image
 				File source = driver.getScreenshotAs(OutputType.FILE);
 				File destination = new File("./Snaps/oneplus9pro.png");
-				FileUtils.copyToDirectory(source, destination);
+				FileUtils.copyFile(source, destination);
 
 				// 7.Click 'Add to Cart' button
 				driver.findElement(By.xpath("//input[@id='add-to-cart-button']")).click();
