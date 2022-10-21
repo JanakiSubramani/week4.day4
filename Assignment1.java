@@ -93,39 +93,41 @@ public class Assignment1 {
 		String windowHandle = driver.getWindowHandle();
 		System.out.println(windowHandle);
 
-		// 12) Click on ADD to BAG
+		// 11) Click on ADD to BAG
 		Thread.sleep(2000);
 		WebElement bag = driver.findElement(By.xpath("//div[@class='css-vp18r8']//button//span"));
 		builder.moveToElement(bag).click().perform();
-		// 13) Go to Shopping Bag
+		// 12) Go to Shopping Bag
 		WebElement viewBag = driver.findElement(By.xpath("//div[@class='css-0 e1ewpqpu1']//button"));
 		builder.moveToElement(viewBag).click().perform();
 
-		// 14) Print the Grand Total amount
+		// 13) Print the Grand Total amount
 		WebElement frame = driver.findElement(By.xpath("//iframe[@class='css-acpm4k']"));
 		driver.switchTo().frame(frame);
 		String grandTotal = driver.findElement(By.xpath("//div[text()='259']")).getText();
 		int total = Integer.parseInt(grandTotal.replaceAll("[^0-9]", ""));
 		System.out.println("The Grand Total amount of product is  :" + total);
 
-		// 15) Click Proceed
+		// 14) Click Proceed
 		driver.findElement(By.xpath("//span[text()='Proceed']/ancestor::button")).click();
-		// 16) Click on Continue as Guest
+		// 15) Click on Continue as Guest
 		driver.findElement(By.xpath("//div[text()='Checkout as guest']/following-sibling::button")).click();
-		// 17) Print the Grand total amount
+		// 16) Print the Grand total amount
 		WebElement grandTotalPrice = driver
 				.findElement(By.xpath("//div[@class='payment-details-tbl grand-total-cell prl20']//span"));
 		String text1 = grandTotalPrice.getText();
 		int grandTotalPriceAmount = Integer.parseInt(text1.replaceAll("[^0-9]", ""));
 		System.out.println("The GrandTotalPriceAmount is :" + grandTotalPriceAmount);
 
-		// 18) verify the grand total amount
+		// 17) verify the grand total amount
 		if (total == grandTotalPriceAmount) {
 			System.out.println("The Grant Total amount is valid");
 		} else {
 			System.out.println("The Grant Total amount is not  valid");
 
 		}
+		//18.Close the browser
+		driver.close();
 	}
 
 }
